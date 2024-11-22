@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="anim.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <link rel="icon" href="icon.svg">
+    <link rel="stylesheet" href="snackbar.css">
+    <title>اتوبار | باربری</title>
+</head>
+<body onload="show()">
+    <div class="flex">
+        <div class="word" id="word"></div>
+        <h3 class="code" id="code">کد دریافتی را وارد نمایید</h3>
+        <div class="main">
+            <img class="icon" id="icon" src="icon.svg" alt="">
+            <input class="editTxt" id="editTxtTel" type="tel" maxlength="11" required autofocus placeholder="شماره موبایل">
+            <button class="btn" id="btnLogin">ورود</button>
+        </div>
+    </div>
+
+    <div id="snackbar">شماره موبایل صحیح نمی‌باشد !</div>
+
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+    
+    <script>
+        var codeActive = false;
+
+        var word = document.getElementById('word');
+        var codeMsg = document.getElementById('code');
+        var icon = document.getElementById('icon');
+        var editTxtTel = document.getElementById('editTxtTel');
+        var btnLogin = document.getElementById('btnLogin');
+        
+        function show(){
+            icon.classList.add("show");
+            editTxtTel.style.opacity = 1;
+            btnLogin.style.opacity = 1;
+
+        }
+
+        editTxtTel.onkeydown = (event) => {
+            if(isNaN(event.key) && event.key !== 'Backspace'){
+                event.preventDefault();
+            }
+
+            if(codeActive && editTxtTel.value.length == 3)
+                document.location.href = "main.html";
+        }
+
+        editTxtTel.addEventListener('keypress', function (event) {
+            var key = event.keyCode;
+            if(key === 32) 
+                event.preventDefault();
+        });
+
+        btnLogin.addEventListener('click', function(){
+            if(editTxtTel.value.length < 11)
+                myFunction();
+            if(editTxtTel.value.length >= 11){
+                icon.style.display = 'none';
+                word.style.display = 'none';
+                codeMsg.style.display = 'initial';
+                btnLogin.style.display = 'none';
+                editTxtTel.value = '';
+                editTxtTel.placeholder = "5555"
+                $("#editTxtTel").attr('maxlength', '4');
+                codeActive = true;
+            }
+        })
+
+        // Snackbar
+        function myFunction() {
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+
+
+
+    </script>
+</body>
+</html>

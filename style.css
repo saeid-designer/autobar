@@ -1,0 +1,84 @@
+@font-face {
+    font-family: iran-sans;
+    src: url(IRANSansWeb_Medium.dde1bbb6.ttf);
+}
+ 
+*{
+    margin: 0;
+    padding: 0;
+    font-family: iran-sans;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.code {
+    color: #841000;
+    text-align: center;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    width: 150px;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.show {
+    opacity: 1;
+}
+
+
+
+.main .editTxt {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom:  10px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #841000;
+    outline: none;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.btn {
+    background-color: #841000;
+    color: white;
+    padding: 3px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+}
+
+.btn:hover {
+    background-color: #8a2619;
+}
+
+
+.container {
+    
+
+
+}
